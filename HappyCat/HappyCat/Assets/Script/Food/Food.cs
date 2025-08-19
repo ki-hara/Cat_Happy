@@ -1,4 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using HC.Data;
 using HC.Event;
@@ -50,7 +50,7 @@ namespace HC.Game
         void SetPosition()
         {
             var tablePos = CatPathManager.GetTablePosition(foodData.TableIndex);
-            tablePos += new Vector3(50,50,0);
+            tablePos += new Vector3(60,150,0);
 
             //Vector3 d2Pos = Camera.main.WorldToScreenPoint(tablePos);
             //transform.position = d2Pos;
