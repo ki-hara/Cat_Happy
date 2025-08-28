@@ -48,6 +48,7 @@ namespace HC.Game
             if(catCode == -1)
                 catCode = UserUtill.GetCat().code;
 
+            Debug.Log(catCode);
             var cat = await LoadAddressableManager.Create_Cat<Cat_Actor>(catCode);
         }
         public void Ads()

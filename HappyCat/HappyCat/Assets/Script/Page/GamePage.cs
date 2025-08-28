@@ -22,6 +22,8 @@ public class GamePage : MonoBehaviour
         KitchenManager.KitchenInit();
 
         UIManager.RegisterUI("TopLayout", topLayer).Forget();
+
+        AudioManager.Instance.PlayBGM(AudioManager.E_AUDIO.MainBGM);
     }
     void Start()
     {

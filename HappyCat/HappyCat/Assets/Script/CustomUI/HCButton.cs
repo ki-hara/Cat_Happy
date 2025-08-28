@@ -8,12 +8,16 @@ public class HCButton : Button
 {
     private bool isProcessing = false;
 
+    public AudioManager.E_AUDIO SFX { get; set; } = AudioManager.E_AUDIO.Click1;
+
     public override void OnPointerClick(PointerEventData eventData)
     {
         if (!interactable || isProcessing) return;
 
-        base.OnPointerClick(eventData); // ±âº» Å¬¸¯ µ¿ÀÛ È£Ãâ
+        base.OnPointerClick(eventData); // ê¸°ë³¸ í´ë¦­ ë™ì‘ í˜¸ì¶œ
         StartCoroutine(HandleClickOnce());
+
+        AudioManager.Instance.PlaySFX(SFX);
     }
 
     private IEnumerator HandleClickOnce()

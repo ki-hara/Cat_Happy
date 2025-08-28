@@ -15,18 +15,33 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: f50fdc6510cb6fc4fa00a1f7e2588bee
   m_SerializeEntries:
+  - m_GUID: 0391bfafd549bcb45a2265f775b51de9
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat003
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05dea071a8d2d734d9cdb4b4463aa3c1
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat007
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1224178a4253fc9498ae2857e19dd86a
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat006
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b4b8dd2ea97b8d4bade81d68d096d5b
     m_Address: Assets/HC_Resources/Prefabs/Food/Food.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 29cdead7068d8c04aaea6963486879fd
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat003.controller
+  - m_GUID: 1cf4e1da44c296a42bec5942425cae9f
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat005
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b02feca441ea7c428f79e8aa4b98ce4
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat001.controller
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat001
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -46,7 +61,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51172bba5edc9af45924ca87022e36fc
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat002.controller
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat002
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51782f340fdb84048825ecb272aa21ce
+    m_Address: Audio/Click1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -75,6 +95,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e0b9eea90cefa6468484d4b3e1123a8
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat008
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 808719068f201df4c9dd73f85bc38d48
     m_Address: Assets/HC_Resources/Prefabs/UI/PromoteButton.prefab
     m_ReadOnly: 0
@@ -85,33 +110,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a6e3d13f2972baa4b88693528e54f9ee
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat004.controller
+  - m_GUID: 99e7cd2d5124df14b8289ed103495973
+    m_Address: Audio/MainBGM
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb63425fea43c7e4295068e1e2b26f43
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat004
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd05c887434cbda41a14005add0921bf
     m_Address: Assets/HC_Resources/Prefabs/Popup/OneButtonPopup.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d712523915858224cae20ceda3285701
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat006.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e231ed111f4c5e841a1ab4e20a27fd15
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat008.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e6a772648a730614f93aed43e3cdaaf2
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat005.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f1dd962d807b54c4280f5878af639a15
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat007.controller
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

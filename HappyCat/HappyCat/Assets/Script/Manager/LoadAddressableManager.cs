@@ -21,6 +21,7 @@ namespace HC.Resource
         static string imageFurniturePath = "Assets/HC_Resources/Art/Atlas/BG.spriteatlasv2";
         static string foodPrefab = "Assets/HC_Resources/Prefabs/Food/Food.prefab";
         static string imagefoodPath = "Assets/HC_Resources/Art/Atlas/Food.spriteatlasv2";
+        static string audioPath = "Audio/";
 
         private static async Task<T> Load<T>(string path)
         {
@@ -31,7 +32,7 @@ namespace HC.Resource
 
         public static async Task<T> Load_AnimController<T>(string name)
         {
-            string path = $"{catAnimationPath}AC_{name}.controller";
+            string path = $"{catAnimationPath}AC_{name}";
 
             return await Load<T>(path);
         }
@@ -94,6 +95,11 @@ namespace HC.Resource
             food.transform.SetParent(UIManager.WorldRoot.transform);
             food.SetActive(false);
             return food.GetComponent<T>();
+        }
+        public static async Task<T> LoadAudio<T>(string name)
+        {
+            var p = await Load<T>($"{audioPath}{name}");
+            return p;
         }
     }
 }

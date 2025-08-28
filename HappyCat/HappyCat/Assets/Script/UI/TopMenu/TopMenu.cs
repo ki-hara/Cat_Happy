@@ -60,7 +60,8 @@ public class TopMenu : UIBase
     void OnProfile() {
         UIManager.ShowUI("ProfilePopup");
     }
-    void OnCoin() { }
+    void OnCoin() {
+    }
     void OnCash() { }
     void OnShop() {
     }
