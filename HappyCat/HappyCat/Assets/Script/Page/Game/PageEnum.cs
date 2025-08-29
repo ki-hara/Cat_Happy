@@ -31,6 +31,16 @@ namespace HC.Game
     public enum E_DESTINATION
     {
         NONE,
-        TABLE
+        MOVEFURUNITURE_TYPE1 = 1,
+        MOVEFURUNITURE_TYPE2,
+        MOVEFURUNITURE_TYPE3,
+        MOVEFURUNITURE_TYPE4,
+        MOVEFURUNITURE_TYPE5,
+        MOVEFURUNITURE_TYPE6,
+        WAIT,
+        TABLE,
+        MOVEPOINT,
+        TIP,
+        EXIT
     }
 }

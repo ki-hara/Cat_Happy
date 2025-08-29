@@ -23,6 +23,7 @@ namespace HC.Game
         E_DESTINATION destination = E_DESTINATION.NONE;
         public GuestTable.Data CatData { get; set; }
         public FoodData foodData;
+        public Cat_Wander Wander { get; set; }
 
 
         private void Awake()
@@ -34,6 +35,7 @@ namespace HC.Game
 
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+            Wander = new Cat_Wander(this);
         }
         private void Update()
         {
@@ -41,9 +43,44 @@ namespace HC.Game
             {
                 if(destination == E_DESTINATION.TABLE)
                 {
-                    GameEvent.ServiceEvents.Emit(new DestinationEvent(this, E_DESTINATION.TABLE, foodData.TableIndex));
+                    ChangeCatState(E_ANIMATION.IDLE);
+                    GameEvent.ServiceEvents.Emit(new TableDestinationEvent(this, E_DESTINATION.TABLE, foodData.TableIndex));
+                }else if(destination == E_DESTINATION.MOVEPOINT)
+                {
+                    ChangeCatState(E_ANIMATION.IDLE);
+                    Wander.Wait(5000);
                 }
-                ChangeCatState(E_ANIMATION.IDLE);
+                else if (destination == E_DESTINATION.MOVEFURUNITURE_TYPE5) //쿠션
+                {
+                    ChangeCatState(E_ANIMATION.SIT);
+                    Wander.Wait(15000);
+                }
+                else if (destination == E_DESTINATION.TIP)
+                {
+                    ChangeCatState(E_ANIMATION.IDLE);
+                    Wander.Tip();
+                }
+                else if (destination == E_DESTINATION.EXIT)
+                {
+                    Destroy(gameObject);
+                }
+                else if (destination == E_DESTINATION.WAIT)
+                {
+                    ChangeCatState(E_ANIMATION.IDLE);
+                }
+                else if (destination == E_DESTINATION.NONE)
+                {
+                    ChangeCatState(E_ANIMATION.IDLE);
+                }
+                else
+                {
+                    ChangeCatState(E_ANIMATION.IDLE);
+                    Wander.Wait(5000);
+                    //GameEvent.ServiceEvents.Emit(new DestinationEvent(this, destination));
+                }
+
+                destination = E_DESTINATION.NONE;
+                
             }
         }
         private void OnDestroy()
@@ -79,9 +116,14 @@ namespace HC.Game
             GameEvent.ServiceEvents.Off<FinishCookingEvent>(OnEating);
         }
 
-        public void SetDestination(Vector3 target)
+        public E_ANIMATION GetState()
         {
-            destination = E_DESTINATION.NONE;
+            return catState;
+        }
+
+        public void SetDestination(E_DESTINATION des, Vector3 target)
+        {
+            destination = des;
             var driftPos = target;
             if (Mathf.Abs(transform.position.x - target.x) < agentDrift)
                 driftPos = target + new Vector3(agentDrift, 0f, 0f);
@@ -91,8 +133,7 @@ namespace HC.Game
         public void SetTableDestination(FoodData foodData)
         {
             this.foodData = foodData;
-            SetDestination(CatPathManager.GetTablePosition(foodData.TableIndex));
-            destination = E_DESTINATION.TABLE;
+            SetDestination(E_DESTINATION.TABLE, CatPathManager.GetTablePosition(foodData.TableIndex));
         }
 
         public void ChangeCatState(E_ANIMATION state)
@@ -109,7 +150,8 @@ namespace HC.Game
                     break;
                 case E_ANIMATION.SAD: 
                     break;
-                case E_ANIMATION.SIT: 
+                case E_ANIMATION.SIT:
+                    animator.SetInteger("a_num", Random.Range(0, 2));
                     break;
             }
         }

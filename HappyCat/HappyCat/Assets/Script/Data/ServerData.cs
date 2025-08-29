@@ -51,5 +51,6 @@ namespace HC.Data
         public string cushion_02;
         public string cushion_03;
         public string cushion_04;
+        public string cushion_05;
     }
 }

@@ -60,11 +60,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 51172bba5edc9af45924ca87022e36fc
-    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat002
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51782f340fdb84048825ecb272aa21ce
     m_Address: Audio/Click1
     m_ReadOnly: 0
@@ -122,6 +117,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd05c887434cbda41a14005add0921bf
     m_Address: Assets/HC_Resources/Prefabs/Popup/OneButtonPopup.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea5eeed406cbab241bef2edf938b8f41
+    m_Address: Assets/HC_Resources/Art/Cat/Animator/AC_cat002
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -44,6 +44,7 @@ namespace HC.Game
         public static SpriteRenderer Cushion_02 { get; set; }
         public static SpriteRenderer Cushion_03 { get; set; }
         public static SpriteRenderer Cushion_04 { get; set; }
+        public static SpriteRenderer Cushion_05 { get; set; }
 
         public static void FurnitureInit()
         {
@@ -95,6 +96,7 @@ namespace HC.Game
             Cushion_02 = terrace.Find("cushion_02").GetComponent<SpriteRenderer>();
             Cushion_03 = terrace.Find("cushion_03").GetComponent<SpriteRenderer>();
             Cushion_04 = terrace.Find("cushion_04").GetComponent<SpriteRenderer>();
+            Cushion_05 = terrace.Find("cushion_05").GetComponent<SpriteRenderer>();
 
         }
 
@@ -130,6 +132,7 @@ namespace HC.Game
             Cushion_02.sprite = await LoadAddressableManager.LoadImage_Furniture(info.cushion_02);
             Cushion_03.sprite = await LoadAddressableManager.LoadImage_Furniture(info.cushion_03);
             Cushion_04.sprite = await LoadAddressableManager.LoadImage_Furniture(info.cushion_04);
+            Cushion_05.sprite = await LoadAddressableManager.LoadImage_Furniture(info.cushion_05);
         }
 
         public static Vector3 GetOvenPosition(int index)

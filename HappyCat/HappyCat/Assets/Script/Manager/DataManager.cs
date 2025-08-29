@@ -142,6 +142,7 @@ namespace HC.Data
             furnitureData.cushion_02 = "basica_cushion_001";
             furnitureData.cushion_03 = "basicb_cushion_002";
             furnitureData.cushion_04 = "clover_cushion_003";
+            furnitureData.cushion_05 = "clover_cushion_003";
             serverData.furnitureData = furnitureData;
         }
     }

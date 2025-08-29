@@ -18,17 +18,28 @@ namespace HC.Event
         }
     }
 
-    public class DestinationEvent : IEvent
+    public class TableDestinationEvent : IEvent
     {
         public E_DESTINATION State { get; protected set; }
         public Cat_Actor Cat { get; protected set; }
         public int Tableindex { get; protected set; }
 
-        public DestinationEvent(Cat_Actor cat, E_DESTINATION state, int index = 0)
+        public TableDestinationEvent(Cat_Actor cat, E_DESTINATION state, int index = 0)
         {
             this.Cat = cat;
             this.State = state;
             this.Tableindex = index;
+        }
+    }
+
+    public class DestinationEvent : IEvent
+    {
+        public E_DESTINATION State { get; protected set; }
+        public Cat_Actor Cat { get; protected set; }
+        public DestinationEvent(Cat_Actor cat, E_DESTINATION state)
+        {
+            this.Cat = cat;
+            this.State = state;
         }
     }
 

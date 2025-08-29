@@ -32,24 +32,24 @@ namespace HC.Game
         static void Bind()
         {
             GameEvent.ServiceEvents.On<JoinCatEvent>(OnJoinCat);
-            GameEvent.ServiceEvents.On<DestinationEvent>(OnDestination);
+            GameEvent.ServiceEvents.On<TableDestinationEvent>(OnDestination);
             GameEvent.ServiceEvents.On<FinishEatingEvent>(OnFinishEating);
         }
         static void UnBind()
         {
             GameEvent.ServiceEvents.Off<JoinCatEvent>(OnJoinCat);
-            GameEvent.ServiceEvents.Off<DestinationEvent>(OnDestination);
+            GameEvent.ServiceEvents.Off<TableDestinationEvent>(OnDestination);
             GameEvent.ServiceEvents.Off<FinishEatingEvent>(OnFinishEating);
         }
         private static void OnJoinCat(JoinCatEvent e)
         {
             waitCats.Enqueue(e.Cat);
-            e.Cat.SetDestination(CatPathManager.GetWaitPosition(waitCats.Count - 1));
+            e.Cat.SetDestination(E_DESTINATION.WAIT, CatPathManager.GetWaitPosition(waitCats.Count - 1));
         }
-        static async void OnDestination(DestinationEvent e)
+        static async void OnDestination(TableDestinationEvent e)
         {
             Food food = await LoadAddressableManager.Create_Food<Food>();
-            food.Init(10001, e.Tableindex); //ÀÓ½Ã °íÀ¯ÄÚµå
+            food.Init(10001, e.Tableindex); //ìž„ì‹œ ê³ ìœ ì½”ë“œ
         }
 
         static void OnFinishEating(FinishEatingEvent e)
@@ -58,7 +58,7 @@ namespace HC.Game
             cats.Add(cat);
             tableCats.Remove(e.TableIndex);
 
-            cat.SetDestination(new Vector3(0,-500,0)); // ÀÓ½Ã
+            cat.Wander.WanderStart();
         }
 
         static void CheckWaitCat()
@@ -76,6 +76,7 @@ namespace HC.Game
 
         static async void CatGoTable(int index)
         {
+            if (waitCats.Peek().GetState() != E_ANIMATION.IDLE) return;
             var cat = waitCats.Dequeue();
             UpdateWaitCat();
             tableCats.Add(index, cat);
@@ -87,7 +88,7 @@ namespace HC.Game
             for(int i = 0; i < array.Length; i++)
             {
                 var cat = array[i];
-                cat.SetDestination(CatPathManager.GetWaitPosition(i));
+                cat.SetDestination(E_DESTINATION.WAIT, CatPathManager.GetWaitPosition(i));
             }
         }
     }

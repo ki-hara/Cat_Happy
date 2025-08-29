@@ -25,7 +25,7 @@ namespace HC.UI
         {
             Bind();
 
-            await UniTask.Delay(5000);
+            //await UniTask.Delay(5000);
         }
 
         void Bind()
