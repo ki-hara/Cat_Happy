@@ -102,7 +102,7 @@ public class LoginPage : MonoBehaviour
     }
     void OnNext()
     {
-        SceneLoader.GetSceneLoader.SceneLoad(SceneKind.MainUIScene);
+        SceneLoader.GetSceneLoader.SceneLoad(SceneKind.GameScene);
     }
     #endregion
 }

@@ -16,6 +16,8 @@ public class GamePage : MonoBehaviour
     [SerializeField] GameObject topLayer;
     private void Awake()
     {
+        if(DataManager.SaveData == null && DataManager.SaveData == null) DataManager.Init();
+
         UIManager.Init();
         CatManager.CatInit();
         FurnitureManager.FurnitureInit();

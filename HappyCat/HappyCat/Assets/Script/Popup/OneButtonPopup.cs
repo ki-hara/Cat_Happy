@@ -25,10 +25,10 @@ public class OneButtonPopup : UIBase
     }
     void OnConfirm()
     {
-        Destroy(gameObject);
+        Close();
     }
     void OnClose()
     {
-        Destroy(gameObject);
+        Close();
     }
 }

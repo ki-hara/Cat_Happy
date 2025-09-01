@@ -8,15 +8,15 @@ namespace HC.Game
 {
     public class CatJoin
     {
+        public bool Stop { get; set; }
         readonly float coolTimeMin = 10;
         readonly float coolTimeMax = 20;
         float coolTimeSec = 0;
-        public void Init()
-        {
 
-        }
         public void Update()
         {
+            if (Stop) return;
+
             coolTimeSec -= Time.deltaTime;
 
             //Debug.Log(coolTimeSec);

@@ -62,7 +62,7 @@ namespace HC.Game
                 }
                 else if (destination == E_DESTINATION.EXIT)
                 {
-                    Destroy(gameObject);
+                    GameEvent.ServiceEvents.Emit(new LeaveCatEvent(this));
                 }
                 else if (destination == E_DESTINATION.WAIT)
                 {

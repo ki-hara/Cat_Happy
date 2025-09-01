@@ -105,6 +105,7 @@ namespace HC.Game
             Floor.sprite = await LoadAddressableManager.LoadImage_Furniture(info.floor);
             Sky.sprite = await LoadAddressableManager.LoadImage_Furniture(info.sky);
             Wall.sprite = await LoadAddressableManager.LoadImage_Furniture(info.wall);
+            Wall_Partition.sprite = await LoadAddressableManager.LoadImage_Furniture(info.wall_b);
             Board.sprite = await LoadAddressableManager.LoadImage_Furniture(info.board);
             Table1.sprite = await LoadAddressableManager.LoadImage_Furniture(info.table1);
             Table2.sprite = await LoadAddressableManager.LoadImage_Furniture(info.table2);

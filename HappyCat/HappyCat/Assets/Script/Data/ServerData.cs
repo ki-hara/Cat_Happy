@@ -3,13 +3,20 @@ using UnityEngine;
 
 namespace HC.Data
 {
+    [Serializable]
     public class ServerData
     {
         public UserData userData;
         public FurnitureData furnitureData;
+
+        public ServerData()
+        {
+            userData = new UserData();
+            furnitureData = new FurnitureData();
+        }
     }
 
-
+    [Serializable]
     public class UserData
     {
         public int level;
@@ -17,7 +24,7 @@ namespace HC.Data
         public int coin;
         public int guideQuest_Progression;
     }
-
+    [Serializable]
     public class FurnitureData
     {
         public string floor;
@@ -52,5 +59,12 @@ namespace HC.Data
         public string cushion_03;
         public string cushion_04;
         public string cushion_05;
+
+        public FurnitureData() {
+            floor = "basica_floor_001";
+            sky = "basica_sky_001";
+            wall = "basica_walla_001";
+            wall_b = "basica_wallb_001";
+        }
     }
 }

@@ -71,4 +71,13 @@ namespace HC.Event
             this.TableIndex = tableIndex;
         }
     }
+    public class LeaveCatEvent : IEvent
+    {
+        public Cat_Actor Cat { get; protected set; }
+
+        public LeaveCatEvent(Cat_Actor cat)
+        {
+            this.Cat=cat;
+        }
+    }
 }

@@ -4,12 +4,14 @@ using HC.Resource;
 using HC.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace HC.Game
 {
     public class CatManager
     {
+        static int limitCat = 20;
         static List<Cat_Actor> cats = new List<Cat_Actor>();
         static Queue<Cat_Actor> waitCats = new Queue<Cat_Actor>();
         static Dictionary<int, Cat_Actor> tableCats = new Dictionary<int, Cat_Actor>();
@@ -24,6 +26,7 @@ namespace HC.Game
         {
             joinCat?.Update();
             CheckWaitCat();
+            CheckOverCat();
         }
         public static void Close()
         {
@@ -34,12 +37,14 @@ namespace HC.Game
             GameEvent.ServiceEvents.On<JoinCatEvent>(OnJoinCat);
             GameEvent.ServiceEvents.On<TableDestinationEvent>(OnDestination);
             GameEvent.ServiceEvents.On<FinishEatingEvent>(OnFinishEating);
+            GameEvent.ServiceEvents.On<LeaveCatEvent>(OnLeaveCat);
         }
         static void UnBind()
         {
             GameEvent.ServiceEvents.Off<JoinCatEvent>(OnJoinCat);
             GameEvent.ServiceEvents.Off<TableDestinationEvent>(OnDestination);
             GameEvent.ServiceEvents.Off<FinishEatingEvent>(OnFinishEating);
+            GameEvent.ServiceEvents.Off<LeaveCatEvent>(OnLeaveCat);
         }
         private static void OnJoinCat(JoinCatEvent e)
         {
@@ -60,6 +65,18 @@ namespace HC.Game
 
             cat.Wander.WanderStart();
         }
+        static void OnLeaveCat(LeaveCatEvent e)
+        {
+            if (!cats.Remove(e.Cat))
+            {
+                if(!tableCats.Remove(tableCats.FirstOrDefault(x => x.Value == e.Cat).Key))
+                {
+                    waitCats = new Queue<Cat_Actor>(waitCats.Where(x => x != e.Cat));
+                }
+            }
+
+            e.Cat.Close();
+        }
 
         static void CheckWaitCat()
         {
@@ -72,6 +89,13 @@ namespace HC.Game
             else if (!string.IsNullOrEmpty(DataManager.ServerData.furnitureData.table5) && !tableCats.ContainsKey(4)) CatGoTable(4);
             else if (!string.IsNullOrEmpty(DataManager.ServerData.furnitureData.table6) && !tableCats.ContainsKey(5)) CatGoTable(5);
             
+        }
+        static void CheckOverCat()
+        {
+            int count = waitCats.Count + cats.Count + tableCats.Count;
+
+            if (joinCat.Stop && count < limitCat) joinCat.Stop = false;
+            else if(!joinCat.Stop && count >= limitCat) joinCat.Stop = true;
         }
 
         static async void CatGoTable(int index)
