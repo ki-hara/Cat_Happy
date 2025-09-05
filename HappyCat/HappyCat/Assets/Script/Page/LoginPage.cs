@@ -31,7 +31,7 @@ public class LoginPage : MonoBehaviour
 
         Config.SetCamera(E_Camera.loadingPage);
 
-        UIManager.ShowUI("OneButtonPopup");
+        //UIManager.ShowUI("OneButtonPopup");
     }
     void Bind()
     {
